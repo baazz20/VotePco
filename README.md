@@ -7,5 +7,5 @@ Section destine aux votes
 Section pour les resultats
 # INSTALLATION
 Clonner le depot git, placer le dossier dans le repertoire www de votre server local. <br> import la base de données avec le même nom que le fichier sql dans le dossier database. <br>
-# EN IMAGE:
-! [interface ] (/public/assets/media/demo1.gif)
+## EN IMAGE:
+![interface ](/public/assets/media/demo1.gif)
