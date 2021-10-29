@@ -1,1 +1,1 @@
-<?php require('controller/welcomeController.php');
+<?php require('config/security/security.php');
