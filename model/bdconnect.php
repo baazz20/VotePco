@@ -1,13 +1,14 @@
 <?php
-function dbConnect()
-{
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=votepco;charset=utf8', 'root', '');
-        return $db;
+
+    $sname = "localhost";
+    $unmae = "root";
+    $password = "";
+    
+    $db_name = "votepco";
+    
+    $conn = mysqli_connect($sname, $unmae, $password, $db_name);
+    
+    if (!$conn) {
+        echo "Echec de connexion!";
     }
-    catch(Exception $e)
-    {
-        die('Cette erreur à été trouvé: '.$e->getMessage());
-    }
-}
+

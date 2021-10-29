@@ -54,7 +54,7 @@
       </button>
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
-          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+          <!-- <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
             <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages2" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
               Pages
@@ -70,15 +70,81 @@
               <img src="./public/assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-block d-none">
               <img src="./public/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-none d-block">
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">article</i>
-              Docs
+            <i class="material-icons opacity-6 me-2 text-md">article</i>
+            <?= htmlspecialchars($_SESSION['NOM']) ?>
               <img src="./public/assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-block d-none">
               <img src="./public/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-none d-block">
             </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+              <div class="d-none d-lg-block">
+                <ul class="list-group">
+                  <li class="nav-item list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="../config/security/deconnexion.php">
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Déconnexion</h6>
+                      <span class="text-sm">Cliquer pour vous deconnecter</span>
+                    </a>
+                  </li>
+                  <!-- <li class="nav-item list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/colors/material-kit ">
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Foundation</h6>
+                      <span class="text-sm">See our colors, icons and typography</span>
+                    </a>
+                  </li>
+                  <li class="nav-item list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/alerts/material-kit ">
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Components</h6>
+                      <span class="text-sm">Explore our collection of fully designed components</span>
+                    </a>
+                  </li>
+                  <li class="nav-item list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/datepicker/material-kit ">
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Plugins</h6>
+                      <span class="text-sm">Check how you can integrate our plugins</span>
+                    </a>
+                  </li>
+                  <li class="nav-item list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/utilities/material-kit ">
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Utility Classes</h6>
+                      <span class="text-sm">For those who want flexibility, use our utility classes</span>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+
+              <div class="row d-lg-none">
+                <div class="col-md-12 g-0">
+                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Getting Started</h6>
+                    <span class="text-sm">All about overview, quick start, license and contents</span>
+                  </a>
+
+                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Foundation</h6>
+                    <span class="text-sm">See our colors, icons and typography</span>
+                  </a>
+
+                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Components</h6>
+                    <span class="text-sm">Explore our collection of fully designed components</span>
+                  </a>
+
+                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Plugins</h6>
+                    <span class="text-sm">Check how you can integrate our plugins</span>
+                  </a>
+
+                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Utility Classes</h6>
+                    <span class="text-sm">For those who want flexibility, use our utility classes</span>
+                  </a>
+                </div>
+              </div>
+
+            </ul>
           </li>
           <li class="nav-item ms-lg-auto my-auto ms-3 ms-lg-0 mt-2 mt-lg-0">
             <a href="admin/index.php" class="btn btn-sm  bg-gradient-primary mb-0 me-1 mt-2 mt-md-0">Pour les jurés</a>
@@ -161,7 +227,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Cadeaux
+                  Cadeaux
                 </a>
               </li>
               <li class="nav-item">
@@ -188,12 +254,12 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Bits et extraits
+                  Bits et extraits
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Programme d'affiliation
+                  Programme d'affiliation
                 </a>
               </li>
             </ul>
@@ -205,22 +271,22 @@
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Nous contacter
+                  Nous contacter
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Centre de connaissances
+                  Centre de connaissances
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Développement personnalisé
+                  Développement personnalisé
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                Parrainages
+                  Parrainages
                 </a>
               </li>
             </ul>
@@ -232,7 +298,7 @@
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                termes & conditions
+                  termes & conditions
                 </a>
               </li>
               <li class="nav-item">
@@ -251,7 +317,7 @@
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
-            Tous les droits sont réservés. Copyright © <script>
+              Tous les droits sont réservés. Copyright © <script>
                 document.write(new Date().getFullYear())
               </script> pateforme de vote par <a href="#" target="_blank">MIAGE promo 2019 équipe dev JI-2022</a>.
             </p>

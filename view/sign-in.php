@@ -69,23 +69,31 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start">
+              <?php if (isset($_GET['error'])) { ?>
+                <div class="alert alert-warning text-white font-weight-bold" role="alert">
+                  <p style="text-align: center;"><?php echo $_GET['error']; ?></p>
+                </div>
+              <?php } ?>
+              <!-- formulaire d'identification -->
+
+              <form role="form" class="text-start" action="../controller/sign-inController.php" method="post">
                 <div class="input-group input-group-outline my-3">
                   <label class="form-label">Email</label>
-                  <input type="email" class="form-control">
+                  <input type="email" class="form-control" name="email">
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <label class="form-label">Code d'électeur</label>
-                  <input type="password" class="form-control">
+                  <input type="password" class="form-control" name="code">
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">S'identifier</button>
+                  <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">S'identifier</button>
                 </div>
                 <p class="mt-4 text-sm text-center">
-                un problème ?
+                  un problème ?
                   <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Contacter la commission</a>
                 </p>
               </form>
+              <!-- fin du formulaire d'identification -->
             </div>
           </div>
         </div>
