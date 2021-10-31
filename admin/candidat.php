@@ -34,10 +34,10 @@
         <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  active" href="dashboard.php">
+                    <a class="nav-link  " href="index.php">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>shop </title>
+                                <title>dashboard </title>
                                 <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <g id="Rounded-Icons" transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                         <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
@@ -53,11 +53,12 @@
                         <span class="nav-link-text ms-1">Tableau de bord</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link  " href="electeur.php">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>Bureau</title>
+               
+                <a class="nav-link  " href="electeur.php">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                       
+                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>electeur</title>
                                 <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <g id="Rounded-Icons" transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                         <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
@@ -69,14 +70,15 @@
                                     </g>
                                 </g>
                             </svg>
-                        </div>
-                        <span class="nav-link-text ms-1">Votants</span>
-                    </a>
+                    </div>
+                    <span class="nav-link-text ms-1">Electeur</span>
+                </a>
                 </li>
-                <a class="nav-link  " href="candidat.php">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link  active" href="candidat.php">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>Candidats</title>
+                            <title>candidat</title>
                             <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="Rounded-Icons" transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
@@ -88,12 +90,10 @@
                                 </g>
                             </g>
                         </svg>
-                    </div>
-                    <span class="nav-link-text ms-1">Candidats</span>
-                </a>
+                        </div>
+                        <span class="nav-link-text ms-1">Candidat</span>
+                    </a>
                 </li>
-
-
 
             </ul>
         </div>
