@@ -309,7 +309,7 @@ include 'backend/save.php'; ?>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="avatar-sm-1 me-3">
-                                                <img id="file-ip-1-preview" class="border-radius-lg shadow">
+                                                <img id="file-ip-1-preview" class="border-radius-lg shadow" style="max-width:75%;">
                                             </div>
                                         </div>
                                     </div>
