@@ -326,10 +326,7 @@ include 'backend/save.php'; ?>
                 </div>
             </div>
         </div>
-        <?php
-        $ret = mysqli_query($conn, "select * from candidat");
-        $cnt = 1;
-        $row = mysqli_num_rows($ret);  ?>
+
         <!-- fin modal -->
         <div class="container-fluid py-4">
             <div class="row">
@@ -365,7 +362,15 @@ include 'backend/save.php'; ?>
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre de candidat</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                        <?php echo $cnt-1; ?>
+                                            <?php
+                                            $ret = mysqli_query($conn, "select * from candidat");
+                                            $cnt = 0;
+                                            $row = mysqli_num_rows($ret);
+                                            if ($row > 0) {
+                                                while ($row = mysqli_fetch_array($ret)) {
+                                                    $cnt = $cnt + 1;
+                                                }
+                                            }  ?> <?= $cnt;?>
                                             <span class="text-success text-sm font-weight-bolder">candidats</span>
                                         </h5>
                                     </div>
@@ -400,8 +405,8 @@ include 'backend/save.php'; ?>
 
                                             POSTE</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        TELEPHONE</th>
-                                        
+                                            TELEPHONE</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
