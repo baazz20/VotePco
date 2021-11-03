@@ -156,44 +156,9 @@ session_start();
             </div>
         </div>
     </div>
-    <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-        <div class="container">
-            <div class="section text-center">
-                <h2 class="title">La section principale ICI</h2>
-                <!-- test  -->
-                <div class="card" data-animation="true">
-                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <a class="d-block blur-shadow-image">
-                            <img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                        </a>
-                        <div class="colored-shadow" style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);"></div>
-                    </div>
-                    <div class="card-body text-center">
-                        <div class="d-flex mt-n6 mx-auto">
-                            <a class="btn btn-link text-primary ms-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Refresh">
-                                <i class="material-icons text-lg">refresh</i>
-                            </a>
-                            <button class="btn btn-link text-info me-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                <i class="material-icons text-lg">edit</i>
-                            </button>
-                        </div>
-                        <h5 class="font-weight-normal mt-3">
-                            <a href="javascript:;">Cozy 5 Stars Apartment</a>
-                        </h5>
-                        <p class="mb-0">
-                            The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
-                        </p>
-                    </div>
-                    <hr class="dark horizontal my-0">
-                    <div class="card-footer d-flex">
-                        <p class="font-weight-normal my-auto">$899/night</p>
-                        <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">place</i>
-                        <p class="text-sm my-auto"> Barcelona, Spain</p>
-                    </div>
-                </div>
-                <!-- fintest -->
-            </div>
-        </div>
+    <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+       
+        <?php require_once 'model/listeCandidat.php'; ?>
     </div>
     <footer class="footer pt-5 mt-5">
         <div class="container">
