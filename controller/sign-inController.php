@@ -41,6 +41,6 @@ if (isset($_POST['email']) && isset($_POST['code'])) {
         }
     }
 } else {
-    header("Location: ../view/sign-in.php");
+    header("Location: ../index.php");
     exit();
 }

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php 
+include_once '../config/security/security.php';?><!DOCTYPE html>
 <html lang="fr">
 
 <head>
