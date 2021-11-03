@@ -106,7 +106,7 @@ session_start();
                             </div>
                         </ul>';
                         } else {
-                            echo'<ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+                            echo '<ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
                             <div class="d-none d-lg-block">
                                 <ul class="list-group">
                                     <li class="nav-item list-group-item border-0 p-0">
@@ -119,13 +119,23 @@ session_start();
                             </div>
                         </ul>';
                         }
-
                         ?>
-                        
                     </li>
-                    <li class="nav-item ms-lg-auto my-auto ms-3 ms-lg-0 mt-2 mt-lg-0">
+
+
+                    <?php
+
+                    if (!isset($_SESSION['admin'])) {
+                        echo '<button type="button" class="btn bg-gradient-primary btn-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Désolé, vous n\'être pas membre du jury." data-container="body" data-animation="true">Pour les jurés</button>
+                        ';
+                    } else {
+                        echo '<li class="nav-item ms-lg-auto my-auto ms-3 ms-lg-0 mt-2 mt-lg-0">
                         <a href="admin/index.php" class="btn btn-sm  bg-gradient-primary mb-0 me-1 mt-2 mt-md-0">Pour les jurés</a>
-                    </li>
+                    </li>';
+                    }
+
+                    ?>
+
                 </ul>
             </div>
         </div>
@@ -150,6 +160,38 @@ session_start();
         <div class="container">
             <div class="section text-center">
                 <h2 class="title">La section principale ICI</h2>
+                <!-- test  -->
+                <div class="card" data-animation="true">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <a class="d-block blur-shadow-image">
+                            <img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                        </a>
+                        <div class="colored-shadow" style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);"></div>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="d-flex mt-n6 mx-auto">
+                            <a class="btn btn-link text-primary ms-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Refresh">
+                                <i class="material-icons text-lg">refresh</i>
+                            </a>
+                            <button class="btn btn-link text-info me-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                <i class="material-icons text-lg">edit</i>
+                            </button>
+                        </div>
+                        <h5 class="font-weight-normal mt-3">
+                            <a href="javascript:;">Cozy 5 Stars Apartment</a>
+                        </h5>
+                        <p class="mb-0">
+                            The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+                        </p>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer d-flex">
+                        <p class="font-weight-normal my-auto">$899/night</p>
+                        <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">place</i>
+                        <p class="text-sm my-auto"> Barcelona, Spain</p>
+                    </div>
+                </div>
+                <!-- fintest -->
             </div>
         </div>
     </div>

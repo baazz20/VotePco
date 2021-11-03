@@ -30,6 +30,18 @@ if (isset($_POST['email']) && isset($_POST['code'])) {
                 $_SESSION['SEXE'] = $row['SEXE'];
                 $_SESSION['auth'] = true;
                 header("Location: ../index.php");
+                if (mysqli_num_rows($result1) === 1) {
+                    $row1 = mysqli_fetch_assoc($result1);
+                    if ($row1['CodeVote'] === $row['CodeVote']) {
+                        $_SESSION['admin'] = true;
+                    } else {
+                        header("Location: ../index.php");
+                    }
+                    
+                } else {
+                    header("Location: ../index.php");
+                }
+                
                 exit();
             } else {
                 header("Location: ../view/sign-in.php?error=Pseudo ou mot de passe incorrect");
