@@ -1,5 +1,5 @@
 <?php 
-include_once '../config/security/security.php';?><!DOCTYPE html>
+require_once 'backend/security.php';?><!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -10,6 +10,8 @@ include_once '../config/security/security.php';?><!DOCTYPE html>
     <title>
         JI-2022 | Administration
     </title>
+    <script src="../config/security/deconnexion.js"></script>
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -86,7 +88,7 @@ include_once '../config/security/security.php';?><!DOCTYPE html>
                                             <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z" id="Shape"></path>
                                         </g>
                                     </g>
-                                </g> 
+                                </g>
                             </g>
                         </svg>
                     </div>

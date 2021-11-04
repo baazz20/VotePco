@@ -4,69 +4,65 @@ $ret = mysqli_query($conn, "select * from candidat");
 $cnt = 1;
 $row = mysqli_num_rows($ret);
 ?>
- <section class="pt-3 pb-4" id="count-stats">
-            <div class="container">
+<section class="pt-3 pb-4" id="count-stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 mx-auto py-3">
                 <div class="row">
-                    <div class="col-lg-9 mx-auto py-3">
-                        <div class="row">
-                            <div class="col-md-4 position-relative">
-                                <div class="p-3 text-center">
-                                    <h1 class="text-gradient text-primary"><span id="state1" countto="70"><?php
-                                            $ret = mysqli_query($conn, "select * from candidat");
-                                            $cnt = 0;
-                                            $row = mysqli_num_rows($ret);
-                                            if ($row > 0) {
-                                                while ($row = mysqli_fetch_array($ret)) {
-                                                    $cnt = $cnt + 1;
-                                                }
-                                            }  ?><?= $cnt;?></span>%</h1>
-                                    <h5 class="mt-3">De participation</h5>
-                                    <p class="text-sm font-weight-normal">Le taux de participation dans cette celection</p> 
-                                </div>
-                                <hr class="vertical dark">
-                            </div>
-                            <div class="col-md-4 position-relative">
-                                <div class="p-3 text-center">
-                                    <h1 class="text-gradient text-primary"> <span id="state2" countto="15">15</span>%</h1>
-                                    <h5 class="mt-3">sans voix</h5>
-                                    <p class="text-sm font-weight-normal">Le taux de personne sans voix dans cette election</p>
-                                </div>
-                                <hr class="vertical dark">
-                            </div>
-                            <div class="col-md-4">
-                                <div class="p-3 text-center">
-                                    <h1 class="text-gradient text-primary" id="state3" countto="4">4</h1>
-                                    <h5 class="mt-3">Nombre d'élècteur</h5>
-                                    <p class="text-sm font-weight-normal">Le nombre total de personne participant à cette élèction</p>
-                                </div>
-                            </div>
+                    <div class="col-md-4 position-relative">
+                        <div class="p-3 text-center">
+                            <h1 class="text-gradient text-primary"><span id="state1" countto="70">
+                                    <?php
+                                    $ret1 = mysqli_query($conn, "select * from candidat");
+                                    $cnt1 = 0;
+                                    $row1 = mysqli_num_rows($ret1);
+                                    if ($row1 > 0) {
+                                        while ($row1 = mysqli_fetch_array($ret1)) {
+                                            $cnt1 = $cnt1 + 1;
+                                        }
+                                    }  ?>25</span>%</h1>
+                            <h5 class="mt-3">De participation</h5>
+                            <p class="text-sm font-weight-normal">Le taux de participation dans cette celection</p>
+                        </div>
+                        <hr class="vertical dark">
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <div class="p-3 text-center">
+                            <h1 class="text-gradient text-primary"> <span id="state2" countto="15">15</span>%</h1>
+                            <h5 class="mt-3">sans voix</h5>
+                            <p class="text-sm font-weight-normal">Le taux de personne sans voix dans cette election</p>
+                        </div>
+                        <hr class="vertical dark">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 text-center">
+                            <h1 class="text-gradient text-primary" id="state3" countto="4"><?= $cnt1; ?></h1>
+                            <h5 class="mt-3">Nombre d'élècteur</h5>
+                            <p class="text-sm font-weight-normal">Le nombre total de personne participant à cette élèction</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="container">
-            <div class="section text-center">
-                <h2 class="title mb-5">Liste des candidats</h2>
-                <!-- test  -->
-
-                <!-- fintest -->
-            </div>
-
         </div>
-       
+    </div>
+</section>
+
+  
+<div class="section text-center">
+    <h2 class="title mb-5">Liste des candidats</h2>
+</div>
+
 <?php if ($row > 0) {
-    while ($row = mysqli_fetch_array($ret)) {    ?>
-    
-           
-        </div>
+    while ($row = mysqli_fetch_array($ret)) { ?>
+
         <section class="my-5 py-5">
             <div class="container">
-            <div class="text-center">
-                
-                <h2 class="title"><?= $row['lastname']; ?> <?= $row['name']; ?></h2>
-                <br><hr>
-            </div>
+                <div class="text-center">
+
+                    <h2 class="title"><?= $row['lastname']; ?> <?= $row['name']; ?></h2>
+                    <br>
+                    <hr>
+                </div>
                 <div class="row align-items-center">
                     <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
                         <div class="rotating-card-container">
@@ -74,15 +70,17 @@ $row = mysqli_num_rows($ret);
                                 <div class="front front-background" style="background-image: url(https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80); background-size: cover;">
                                     <div class="card-body py-7 text-center">
                                         <i class="material-icons text-white text-4xl my-3">touch_app</i>
-                                        <h3 class="text-white">Feel the <br> Material Kit</h3>
+                                        <h3 class="text-white"><?= $row['lastname']; ?><br> <?= $row['name']; ?></h3>
                                         <p class="text-white opacity-8">All the Bootstrap components that you need in a development have been re-design with the new look.</p>
                                     </div>
                                 </div>
                                 <div class="back back-background" style="background-image: url(https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1365&amp;q=80); background-size: cover;">
                                     <div class="card-body pt-7 text-center">
-                                        <h3 class="text-white">Discover More</h3>
+                                        <h3 class="text-white">Votes Moi</h3>
                                         <p class="text-white opacity-8"> You will save a lot of time going from prototyping to full-functional code because all elements are implemented.</p>
-                                        <a href=".//sections/page-sections/hero-sections.html" target="_blank" class="btn btn-white btn-sm w-50 mx-auto mt-3">Start with Headers</a>
+                                        <a <?php if (!isset($_SESSION['auth'])) {?>
+                                            data-bs-toggle="modal" data-bs-target="#modal-notification"                                                <?php  } else { ?> href="view/candidat.php?candidatid=
+                                            <?php  };?> <?php echo htmlentities($row['id']); ?>" class="btn btn-white btn-sm w-50 mx-auto mt-3">Je Vote Maintenent</a>
                                     </div>
                                 </div>
                             </div>

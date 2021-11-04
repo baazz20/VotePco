@@ -16,7 +16,7 @@ session_start();
         Election du PCO | JI-2022
     </title>
 
-
+<script src="config/security/deconnexion.js"></script>
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -42,6 +42,32 @@ session_start();
 </head>
 
 <body>
+    <!-- modal -->
+    <div class="me-2">
+        <div class="modal fade" id="modal-notification" tabindex="-1" aria-labelledby="modal-notification" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="modal-title-notification">Votre attention est requise</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="py-3 text-center">
+                            <i class="ni ni-bell-55 ni-3x"></i>
+                            <h4 class="text-gradient text-danger mt-4">Vous n'être pas autorisé à voter !</h4>
+                            <p>Pour voter vous Veuillez d'abord vous identifier</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary">Ok, J'ai compris</button>
+                        <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Navbar Transparent -->
     <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
         <div class="container">
@@ -157,7 +183,7 @@ session_start();
         </div>
     </div>
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
-       
+
         <?php require_once 'model/listeCandidat.php'; ?>
     </div>
     <footer class="footer pt-5 mt-5">
@@ -314,43 +340,86 @@ session_start();
 
 
 
-
-
-
     <!--   Core JS Files   -->
-    <script src="./public/assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="./public/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./public/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
 
 
 
 
     <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
-    <script src="./public/assets/js/plugins/countup.min.js"></script>
+    <script src="./assets/js/plugins/countup.min.js"></script>
 
 
 
 
 
-    <script src="./public/assets/js/plugins/choices.min.js"></script>
+    <script src="./assets/js/plugins/choices.min.js"></script>
 
 
 
-    <script src="./public/assets/js/plugins/prism.min.js"></script>
-    <script src="./public/assets/js/plugins/highlight.min.js"></script>
+    <script src="./assets/js/plugins/prism.min.js"></script>
+    <script src="./assets/js/plugins/highlight.min.js"></script>
 
 
 
     <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
-    <script src="./public/assets/js/plugins/rellax.min.js"></script>
+    <script src="./assets/js/plugins/rellax.min.js"></script>
     <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
-    <script src="./public/assets/js/plugins/tilt.min.js"></script>
+    <script src="./assets/js/plugins/tilt.min.js"></script>
     <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
-    <script src="./public/assets/js/plugins/choices.min.js"></script>
+    <script src="./assets/js/plugins/choices.min.js"></script>
 
 
     <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
-    <script src="./public/assets/js/plugins/parallax.min.js"></script>
+    <script src="./assets/js/plugins/parallax.min.js"></script>
+
+
+    <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+    <!--  Google Maps Plugin    -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+    <script src="./assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        if (document.getElementById('state1')) {
+            const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+        if (document.getElementById('state2')) {
+            const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+            if (!countUp1.error) {
+                countUp1.start();
+            } else {
+                console.error(countUp1.error);
+            }
+        }
+        if (document.getElementById('state3')) {
+            const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+            if (!countUp2.error) {
+                countUp2.start();
+            } else {
+                console.error(countUp2.error);
+            };
+        }
+    </script>
+    <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
+    <!--   Core JS Files   -->
+    <script src="../public/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="../public/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../public/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+    <script src="../public/assets/js/plugins/parallax.min.js"></script>
+    <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+    <script src="../public/assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
 </body>
 
 </html>

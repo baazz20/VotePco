@@ -1,5 +1,6 @@
 <?php
-include 'backend/save.php'; ?>
+include 'backend/save.php'; 
+require_once 'backend/security.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,6 +12,8 @@ include 'backend/save.php'; ?>
     <title>
         JI-2022 | Administration
     </title>
+    <script src="../config/security/deconnexion.js"></script>
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -27,7 +30,7 @@ include 'backend/save.php'; ?>
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-3 bg-white" id="sidenav-main" data-color="info">
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="dashboard.php">
+            <a class="navbar-brand m-0" href="index.php">
                 <img src="assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="...">
                 <span class="ms-1 font-weight-bold">JI-2022 | Administration</span>
             </a>
@@ -135,7 +138,7 @@ include 'backend/save.php'; ?>
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
-                                <span class="d-sm-inline d-none"> admin</span>
+                                <span class="d-sm-inline d-none"> <?= $_SESSION['NOM']; ?></span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -360,7 +363,7 @@ include 'backend/save.php'; ?>
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre de candidat</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Total candidat</p>
                                         <h5 class="font-weight-bolder mb-0">
                                             <?php
                                             $ret = mysqli_query($conn, "select * from candidat");
@@ -371,7 +374,7 @@ include 'backend/save.php'; ?>
                                                     $cnt = $cnt + 1;
                                                 }
                                             }  ?> <?= $cnt;?>
-                                            <span class="text-success text-sm font-weight-bolder">candidats</span>
+                                            <span class="text-success text-sm font-weight-bolder">candidat (s)</span>
                                         </h5>
                                     </div>
                                 </div>
@@ -392,7 +395,7 @@ include 'backend/save.php'; ?>
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Liste des candidat</h6>
+                        <h6>Liste des candidats</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
