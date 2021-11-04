@@ -47,7 +47,7 @@ $row = mysqli_num_rows($ret);
     </div>
 </section>
 
-  
+
 <div class="section text-center">
     <h2 class="title mb-5">Liste des candidats</h2>
 </div>
@@ -78,9 +78,8 @@ $row = mysqli_num_rows($ret);
                                     <div class="card-body pt-7 text-center">
                                         <h3 class="text-white">Votes Moi</h3>
                                         <p class="text-white opacity-8"> You will save a lot of time going from prototyping to full-functional code because all elements are implemented.</p>
-                                        <a <?php if (!isset($_SESSION['auth'])) {?>
-                                            data-bs-toggle="modal" data-bs-target="#modal-notification"                                                <?php  } else { ?> href="view/candidat.php?candidatid=
-                                            <?php  };?> <?php echo htmlentities($row['id']); ?>" class="btn btn-white btn-sm w-50 mx-auto mt-3">Je Vote Maintenent</a>
+                                        <a <?php if (!isset($_SESSION['auth'])) { ?> data-bs-toggle="modal" data-bs-target="#modal-notification" <?php  } else { ?> 
+                                            href="view/candidat.php?candidatid=<?php echo htmlentities($row['id']);?>"<?php  }; ?> class="btn btn-white btn-sm w-50 mx-auto mt-3">Je Vote Maintenent</a>
                                     </div>
                                 </div>
                             </div>
