@@ -1,5 +1,12 @@
 <?php session_start();
-require_once('../model/vote.php');?>
+require_once '../model/bdconnect.php';
+$get_id = (int) trim(htmlentities($_GET['candidatid']));
+$requete =  mysqli_query($conn, "SELECT * FROM candidat WHERE id = $get_id");
+$row = mysqli_fetch_array($requete);
+include_once '../model/vote.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -9,7 +16,7 @@ require_once('../model/vote.php');?>
   <link rel="apple-touch-icon" sizes="76x76" href="../public/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../public/assets/img/favicon.png">
   <title>
-   <?= $row[1]; ?>
+    <?= $row[1]; ?>
   </title>
   <script src="../config/security/deconnexion.js"></script>
 
@@ -27,12 +34,63 @@ require_once('../model/vote.php');?>
 </head>
 
 <body class="blog-author bg-gray-200">
+
+  <div class="me-2">
+
+    <!-- modal de vote -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalSignUp" tabindex="-1" aria-labelledby="exampleModalSignTitle" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-primary text-gradient text-center">Accomplissez votre
+                  Devoir</h3>
+                <p class="mb-0 text-center">Veuiller saisir <br> votre Code d'élècteur pour voté</p>
+              </div>
+              <div class="card-body pb-3">
+                <form role="form text-left" action="" method="POST">
+                  <div class="input-group mb-3">
+                    <div class="input-group input-group-outline mb-4">
+                      <label class="form-label">Code D'élècteur</label>
+                      <input type="text" class="form-control" name="codeVote">
+                    </div>
+                  </div>
+                  <div class="form-check form-check-info text-left">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked="" name="confirm">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Je confime <a href="javascrpt:;" class="text-dark font-weight-bolder">mon
+                        Choix</a>
+                    </label>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="button btn bg-gradient-primary btn-lg btn-rounded w-100 mt-4 mb-0" name="valider">Voté</button>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer text-center pt-0 px-sm-4 px-1">
+                <p class="mb-4 mx-auto">
+                  Noté que vous avez le droid de voté qu'une seul fois
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Navbar Transparent -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
       <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-      Election du PCO | JI-2022
+        Election du PCO | JI-2022
       </a>
+
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
           <span class="navbar-toggler-bar bar1"></span>
@@ -41,8 +99,9 @@ require_once('../model/vote.php');?>
         </span>
       </button>
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
+
         <ul class="navbar-nav navbar-nav-hover ms-auto">
-          
+
           <li class="nav-item my-auto ms-3 ms-lg-0">
             <a href="../index.php" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Accueil</a>
           </li>
@@ -53,15 +112,37 @@ require_once('../model/vote.php');?>
   <!-- End Navbar -->
   <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
   <header>
+
     <div class="page-header min-height-400" style="background-image: url('../public/assets/img/city-profile.jpg');" loading="lazy">
-      <span class="mask bg-gradient-dark opacity-8"></span>
+      <span class="mask bg-gradient-dark opacity-8">
+      </span>
+      <?php if (isset($query_run)) {
+        echo $success;
+      };
+      if (isset($vote)) {
+        if ($vote) {
+          echo $errorMsg;
+        };
+      };
+      if (isset($nonvalide)) {
+        echo $nonvalide;
+      };  ?>
+      <?php if (isset($_GET['error'])) { ?>
+        <div class="alert alert-warning" role="alert">
+          <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+          <span class="alert-text"><strong>Warning!</strong> <?php echo $_GET['error']; ?>!</span>
+        </div>
+      <?php } ?>
     </div>
   </header>
+
+
   <!-- -------- END HEADER 4 w/ search book a ticket form ------- -->
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
     <!-- START Testimonials w/ user image & text & info -->
     <section class="py-sm-7 py-5 position-relative">
       <div class="container">
+
         <div class="row">
           <div class="col-12 mx-auto">
             <div class="mt-n8 mt-md-n9 text-center">
@@ -72,7 +153,8 @@ require_once('../model/vote.php');?>
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <h3 class="mb-0"> <?= $row[1]; ?> <?= $row[2]; ?></h3>
                   <div class="d-block">
-                  <button type="button" class="btn btn-sm btn-outline-info text-nowrap mb-0">VOTEZ MOI</button>
+                    <button type="button" class="button btn btn-sm btn-outline-info text-nowrap mb-0" data-bs-toggle="modal" data-bs-target="#exampleModalSignUp">VOTEZ
+                      MOI</button>
                   </div>
                 </div>
                 <div class="row mb-4">
@@ -84,10 +166,11 @@ require_once('../model/vote.php');?>
                     <span class="h6">55%</span>
                     <span>de l'effectif</span>
                   </div>
-                  
+
                 </div>
                 <p class="text-lg mb-0">
-                <?= $row[6]; ?>. <br><a href="javascript:;" class="text-info icon-move-right">Lire la suite
+                  <?= $row[6]; ?>. <br><a href="javascript:;" class="text-info icon-move-right">Lire
+                    la suite
                     <i class="fas fa-arrow-right text-sm ms-1"></i>
                   </a>
                 </p>
@@ -116,7 +199,8 @@ require_once('../model/vote.php');?>
               </div>
               <div class="card-body px-0">
                 <h5>
-                  <a href="javascript:;" class="text-dark font-weight-bold">Transport Gratuit pour tous</a>
+                  <a href="javascript:;" class="text-dark font-weight-bold">Transport Gratuit pour
+                    tous</a>
                 </h5>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -157,7 +241,8 @@ require_once('../model/vote.php');?>
                   <a href="javascript:;" class="text-dark font-weight-bold">Bal poussière</a>
                 </h5>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui odit consectetur voluptates illum aperiam quaerat...
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui odit consectetur
+                  voluptates illum aperiam quaerat...
                 </p>
                 <a href="javascript:;" class="text-info text-sm icon-move-right">
                 </a>
@@ -166,11 +251,13 @@ require_once('../model/vote.php');?>
           </div>
           <div class="col-lg-3 col-md-12 col-12">
             <div class="card card-blog card-background cursor-pointer">
-              <div class="full-background" style="background-image: url('../public/assets/img/examples/blog2.jpg')" loading="lazy"></div>
+              <div class="full-background" style="background-image: url('../public/assets/img/examples/blog2.jpg')" loading="lazy">
+              </div>
               <div class="card-body">
                 <div class="content-left text-start my-auto py-4">
                   <h2 class="card-title text-white">Horaires de la JI flexibles</h2>
-                  <p class="card-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit corporis veritatis nam .</p>
+                  <p class="card-description text-white">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Fugit corporis veritatis nam .</p>
                   <a href="javascript:;" class="text-white text-sm icon-move-right">
                   </a>
                 </div>
@@ -190,10 +277,13 @@ require_once('../model/vote.php');?>
             <div class="row">
               <div class="col-lg-5 position-relative bg-cover px-0" style="background-image: url('../public/assets/img/examples/blog2.jpg')" loading="lazy">
                 <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
-                  <div class="mask bg-gradient-dark opacity-8"></div>
+                  <div class="mask bg-gradient-dark opacity-8">
+
+                  </div>
                   <div class="p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
                     <h3 class="text-white">Coordonnées</h3>
-                    <p class="text-white opacity-8 mb-4">Remplissez le formulaire et mon équipe vous contactera dans les 24 heures.</p>
+                    <p class="text-white opacity-8 mb-4">Remplissez le formulaire et mon équipe vous
+                      contactera dans les 24 heures.</p>
                     <div class="d-flex p-2 text-white">
                       <div>
                         <i class="fas fa-phone text-sm"></i>
@@ -290,7 +380,7 @@ require_once('../model/vote.php');?>
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com/presentation" target="_blank">
-               A propos
+                A propos
               </a>
             </li>
             <li class="nav-item">
@@ -312,7 +402,8 @@ require_once('../model/vote.php');?>
         </div>
         <div class="col-lg-6 ms-auto text-lg-end text-center">
           <p class="mb-5 text-lg text-dark font-weight-bold">
-          La récompense pour monter sur scène est la gloire. Le prix de la célébrité est que vous ne pouvez pas quitter la scène.
+            La récompense pour monter sur scène est la gloire. Le prix de la célébrité est que vous ne
+            pouvez pas quitter la scène.
           </p>
           <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-5">
             <span class="fab fa-dribbble"></span>

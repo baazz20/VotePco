@@ -42,6 +42,7 @@ session_start();
 </head>
 
 <body>
+
     <!-- modal -->
     <div class="me-2">
         <div class="modal fade" id="modal-notification" tabindex="-1" aria-labelledby="modal-notification" aria-hidden="true" style="display: none;">
@@ -61,8 +62,9 @@ session_start();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary">Ok, J'ai compris</button>
+                        <a  href="view/sign-in.php" type="button" class="btn btn-secondary">Ok, J'ai compris</a>
                         <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Fermer</button>
+                        
                     </div>
                 </div>
             </div>
@@ -71,7 +73,7 @@ session_start();
     <!-- Navbar Transparent -->
     <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
         <div class="container">
-            <a class="navbar-brand  text-white " href="#" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+            <a class="navbar-brand  text-white " href="#" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
                 Election du PCO | JI-2022
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -184,14 +186,15 @@ session_start();
     </div>
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
 
-        <?php require_once 'model/listeCandidat.php'; ?>
+        <?php require_once 'model/listeCandidat.php';
+        ?>
     </div>
     <footer class="footer pt-5 mt-5">
         <div class="container">
             <div class=" row">
                 <div class="col-md-3 mb-4 ms-auto">
                     <div>
-                        <a href="https://www.creative-tim.com/product/material-kit">
+                        <a href="#">
                             <img src="./public/assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo">
                         </a>
                         <h6 class="font-weight-bolder mb-4">JI-2022</h6>
@@ -199,27 +202,27 @@ session_start();
                     <div>
                         <ul class="d-flex flex-row ms-n3 nav">
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="https://www.facebook.com/CreativeTim/" target="_blank">
+                                <a class="nav-link pe-1" href="#" target="_blank">
                                     <i class="fab fa-facebook text-lg opacity-8"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="https://twitter.com/creativetim" target="_blank">
+                                <a class="nav-link pe-1" href="#" target="_blank">
                                     <i class="fab fa-twitter text-lg opacity-8"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="https://dribbble.com/creativetim" target="_blank">
+                                <a class="nav-link pe-1" href="#" target="_blank">
                                     <i class="fab fa-dribbble text-lg opacity-8"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="https://github.com/creativetimofficial" target="_blank">
+                                <a class="nav-link pe-1" href="#" target="_blank">
                                     <i class="fab fa-github text-lg opacity-8"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w" target="_blank">
+                                <a class="nav-link pe-1" href="#" target="_blank">
                                     <i class="fab fa-youtube text-lg opacity-8"></i>
                                 </a>
                             </li>
@@ -337,6 +340,25 @@ session_start();
         </div>
     </footer>
 
+The Modal
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">   
+     	<!-- Modal Header -->
+     	<div class="modal-header">
+           <h4 class="modal-title">Expiration de la session</h4>       
+       	</div>     
+	<!-- Modal body -->
+    	<div class="modal-body">
+        Parce que vous avez été inactif, votre session est sur le point d'expirer.
+     	</div>     
+	<!-- Modal footer -->
+	<div class="modal-footer">
+	   <a href="view/sign-in.php" class="btn btn-primary btn-sm">Connectez-vous à nouveau</a>     		
+	</div>     
+     </div>
+  </div>
+</div>
 
 
 
