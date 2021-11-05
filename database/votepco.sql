@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 03 nov. 2021 à 13:35
+-- Généré le : ven. 05 nov. 2021 à 01:58
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -38,14 +38,14 @@ CREATE TABLE IF NOT EXISTS `candidat` (
   `description` text NOT NULL,
   `photo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `candidat`
 --
 
 INSERT INTO `candidat` (`id`, `name`, `lastname`, `gender`, `email`, `phone`, `description`, `photo`) VALUES
-(1, 'Snow', 'John', 'M', 'candidat@email.com', '+2550707070707', 'tesr', 'candidat@email.com_2021110295587.jpg');
+(6, 'ASSEMIAN', 'Junior', 'M', 'Juniorassemian7@gmail.com', '+22543963980', 'Le MIAGEISTE pendant la formation et après la formation.\r\n\r\nPlus généralement, les nouveaux étudiants MIAGEISTE arrivent dans les locaux de MIAGE-GI ne savant pas véritablement ce c\'est que MIAGE-GI.\r\nIls sont peu informés et il est récurent que la majorité des étudiants ne savent pas vraiment ce qu\'ils cherchent à MIAGE-GI et pense que c\'est un choix qui c\'est imposé à eux.\r\n\r\nJe vois de ce fait la journée d\'intégration comme étant l\'événement primaire permettant de mieux faire comprendre à ces nouveaux arrivant l\'importance du choix de leur filières. Leur donner le maximum d\'informations sur MIAGE-GI pour qu\'ils comprennent ce qu\'ils sont venus chercher à MIAGE-GI et pour ceux qui ne le savent pas, qu\'ils le fasse dès maintenant. Pour qu\'ils trouve leur place à MIAGE-GI. ', 'Juniorassemian7@gmail.com_2021110462157.jpeg');
 
 -- --------------------------------------------------------
 
@@ -75,9 +75,32 @@ CREATE TABLE IF NOT EXISTS `est_vote` (
   `idVote` int(11) NOT NULL AUTO_INCREMENT,
   `idVotant` int(11) NOT NULL,
   `idCandidat` int(11) NOT NULL,
-  `dateVote` time(6) NOT NULL,
+  `dateVote` varchar(255) NOT NULL,
   PRIMARY KEY (`idVote`),
   KEY `idVotant` (`idVotant`),
+  KEY `idCandidat` (`idCandidat`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `iinfocandidat`
+--
+
+DROP TABLE IF EXISTS `iinfocandidat`;
+CREATE TABLE IF NOT EXISTS `iinfocandidat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idCandidat` int(11) NOT NULL,
+  `theme` varchar(255) NOT NULL,
+  `idee1` text NOT NULL,
+  `idee2` text NOT NULL,
+  `idee3` text NOT NULL,
+  `idee4` text NOT NULL,
+  `photoIlus1` varchar(255) NOT NULL,
+  `photoIlus2` varchar(255) NOT NULL,
+  `photoIlus3` varchar(255) NOT NULL,
+  `photoIlus4` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `idCandidat` (`idCandidat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -94,7 +117,14 @@ CREATE TABLE IF NOT EXISTS `jure` (
   `PRENOM` varchar(100) NOT NULL,
   `CodeVote` varchar(100) NOT NULL,
   PRIMARY KEY (`IDJURE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `jure`
+--
+
+INSERT INTO `jure` (`IDJURE`, `NOM`, `PRENOM`, `CodeVote`) VALUES
+(2, 'Snow', 'John', '6293Sno');
 
 -- --------------------------------------------------------
 
@@ -110,16 +140,18 @@ CREATE TABLE IF NOT EXISTS `votant` (
   `EMAIL` varchar(100) NOT NULL,
   `SEXE` char(1) NOT NULL,
   `CodeVote` varchar(7) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`IDVOTANT`),
   KEY `CodeVote` (`CodeVote`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `votant`
 --
 
-INSERT INTO `votant` (`IDVOTANT`, `NOM`, `PRENOM`, `EMAIL`, `SEXE`, `CodeVote`) VALUES
-(1, 'Assemian', 'Kouammé Junior', 'Juniorassemian7@gmail.com', 'M', '55Voy7');
+INSERT INTO `votant` (`IDVOTANT`, `NOM`, `PRENOM`, `EMAIL`, `SEXE`, `CodeVote`, `photo`) VALUES
+(6, 'Snow', 'John', 'electeur@email.com', 'M', '6293Sno', 'electeur@email.com_2021110378008.'),
+(7, 'Snow1', 'John1', 'electeur1@email.com', 'M', '2186Sno', 'electeur1@email.com_2021110549970.jpg');
 
 --
 -- Contraintes pour les tables déchargées
@@ -138,6 +170,12 @@ ALTER TABLE `est_bani`
 ALTER TABLE `est_vote`
   ADD CONSTRAINT `est_vote_ibfk_1` FOREIGN KEY (`idVotant`) REFERENCES `votant` (`IDVOTANT`),
   ADD CONSTRAINT `est_vote_ibfk_2` FOREIGN KEY (`idCandidat`) REFERENCES `candidat` (`id`);
+
+--
+-- Contraintes pour la table `iinfocandidat`
+--
+ALTER TABLE `iinfocandidat`
+  ADD CONSTRAINT `idCandidat` FOREIGN KEY (`idCandidat`) REFERENCES `candidat` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

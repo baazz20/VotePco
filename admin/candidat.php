@@ -1,5 +1,5 @@
 <?php
-include 'backend/save.php'; 
+include 'backend/save.php';
 require_once 'backend/security.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -234,17 +234,23 @@ require_once 'backend/security.php'; ?>
         </nav>
         <!-- End Navbar -->
 
-        <!-- Modal -->
+
+        <!-- Modal candidat -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="max-width: 40%;" role="document">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 50%;" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Enregistrement du Candidat</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Fiche d'inscription</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div id="svg_wrap"></div>
+                        <div class="card-header pb-0 text-left">
+                            <h3 class="text-center font-weight-bolder text-primary text-gradient">AJOUT D'UN CANDIDAT</h3>
+                            <p class="text-center" class="mb-0">Veuillez reseigner le formulaire et cliquer sur Suivant</p>
+                        </div>
                         <form role="form text-left" action="backend/save.php" method="POST" enctype="multipart/form-data">
                             <section>
                                 <p>INFORMATION GENERAL</p>
@@ -306,7 +312,7 @@ require_once 'backend/security.php'; ?>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Presentation et Description de Projet</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" name="description"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -319,6 +325,135 @@ require_once 'backend/security.php'; ?>
 
                                 </div>
                             </section>
+
+                            <section>
+                                <p>INFO CANDIDAT</p>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label">Theme</label>
+                                            <input class="form-control" type="text" value="theme" id="example-text-input" name="theme">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Image 1 </label>
+                                                <input class="form-control" type="file" value="theme" id="example-text-input" name="image1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Idee Generale 1</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label">Image 2 </label>
+                                            <input class="form-control" type="file" value="theme" id="example-text-input" name="image2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Idee Generale 2</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label">Image 3 </label>
+                                            <input class="form-control" type="file" value="theme" id="example-text-input" name="image2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Idee Generale 3</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label">Image 4 </label>
+                                            <input class="form-control" type="file" value="theme" id="example-text-input" name="image2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Idee Generale 4</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label">Image 5 </label>
+                                            <input class="form-control" type="file" value="theme" id="example-text-input" name="image2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <button type="button" class="button btn bg-gradient-secondary" id="prev">&larr; Précédent</button>
+                            <button type="button" id="next" class="button btn bg-gradient-info">Suivant &rarr;</button>
+                            <button id="submit" type="submit" class="button btn bg-gradient-warning" name="valider">Accepter et confirmer l'inscription</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- FIN MODAL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 80%;" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enregistrement du Candidat</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form text-left" action="backend/save.php" method="POST" enctype="multipart/form-data">
+                          
                             <div class="modal-footer">
                                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Fermer</button>
                                 <button type="submit" class="button btn bg-gradient-warning" name="valider">Accepter et confirmer l'inscription</button>
@@ -328,7 +463,7 @@ require_once 'backend/security.php'; ?>
 
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- fin modal -->
         <div class="container-fluid py-4">
@@ -373,7 +508,7 @@ require_once 'backend/security.php'; ?>
                                                 while ($row = mysqli_fetch_array($ret)) {
                                                     $cnt = $cnt + 1;
                                                 }
-                                            }  ?> <?= $cnt;?>
+                                            }  ?> <?= $cnt; ?>
                                             <span class="text-success text-sm font-weight-bolder">candidat (s)</span>
                                         </h5>
                                     </div>
@@ -456,7 +591,7 @@ require_once 'backend/security.php'; ?>
                                                     <span href="#" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                         <i class="fas fa-user-edit" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>&emsp;
                                                     </span>
-                                                    <a href="#" <?php echo ($row['id']); ?>&&ppic=<?php echo $row['photo']; ?>" onclick="return confirm('Voulez vous vraiment le suprimer ?');" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                    <a href="backend/suprimercandidat.php?idF=<?php echo $row['id'] ?>" onclick="return confirm('Voulez vous vraiment le suprimer ?');" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                 </td>
@@ -782,6 +917,17 @@ require_once 'backend/security.php'; ?>
                 damping: '0.5'
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        function showPreview(event) {
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("file-ip-1-preview");
+                preview.src = src;
+                preview.style.display = "block";
+            }
         }
     </script>
     <!-- Github buttons -->

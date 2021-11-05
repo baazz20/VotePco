@@ -1,6 +1,0 @@
-This logo was generated using the following font:
-
-- Font Title: B612
-- Font Author: Copyright 2012 The B612 Project Authors (https://github.com/polarsys/b612)
-- Font Source: http://fonts.gstatic.com/s/b612/v5/3JnySDDxiSz32jm4GDigUXw.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
